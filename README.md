@@ -8,7 +8,11 @@ Single page react application via react for service "Budget"
 
 ### UI
 
-React + antd ui library
+React + antd ui library + styled-components for style management
+
+### Theming
+
+Switch to Dark/Light mode (advanced usage of styled-components)
 
 ### State management
 
@@ -18,17 +22,17 @@ mobX + tanstack-query (ex react-query)
 
 Getting data using Axios and retries with exponential backoff
 
-## Caching
+### Caching
 
-Cacheing network requests via react-query
-
-### Tools
-
-Vite - dev server that serves source files over native ES modules and effective bundling with Rollup, pre-configured to output highly optimized static assets for production.
+Cacheing network requests using react-query
 
 ### PWA
 
 Offine work, installable on mobile devices
+
+### Tools
+
+Vite - dev server that serves source files over native ES modules and effective bundling with Rollup, pre-configured to output highly optimized static assets for production.
 
 ### CI/CD
 
