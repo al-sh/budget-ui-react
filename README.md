@@ -10,6 +10,10 @@ Single page react application via react for service "Budget"
 
 React + antd ui library + styled-components for style management
 
+### Charts
+
+Line chart using recharts
+
 ### Theming
 
 Switch to Dark/Light mode (advanced usage of styled-components)
