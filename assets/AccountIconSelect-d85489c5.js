@@ -1,0 +1,1 @@
+import{j as o,i as t}from"./index-34d4c4ba.js";import{A as n}from"./index-fb18f883.js";const l=({value:r,onChange:s})=>o.jsx(n,{value:r,onChange:s,children:t.map(e=>o.jsx(n.Option,{value:e.value,children:e.el},e.value))});export{l as A};
