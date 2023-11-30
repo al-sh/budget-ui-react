@@ -12,7 +12,11 @@ class StorageService {
   public getItem = (key: string) => {
     if (typeof localStorage === 'undefined') return undefined;
     if (localStorage.getItem(key) === '') return undefined;
-    return JSON.parse(localStorage.getItem(key) as string);
+    try {
+      return JSON.parse(localStorage.getItem(key) as string);
+    } catch (e) {
+      console.error('getitem Error', e); //todo: нотификация
+    }
   };
 
   public removeItem: (key: string) => void = (key: string) => {

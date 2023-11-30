@@ -1,6 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ConfigProvider } from 'antd';
 import 'antd/dist/antd.css';
+import 'moment/locale/ru';
+import ru_RU from 'antd/lib/locale/ru_RU';
+import moment from 'moment';
+
 import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -13,10 +18,13 @@ import { MainPage } from './components/main/MainPage';
 import { UI_ROUTES } from './constants/urls';
 import './index.css';
 import { getStorage } from './services/Storage';
-
 /*if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }*/
+
+moment.locale('ru', { week: { dow: 1 } });
+
+//todo: сделать календарь на русском
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,25 +61,27 @@ export const App = () => {
       <BrowserRouter>
         <ThemeProvider theme={isDarkTheme ? dark : light}>
           <AppWrapper>
-            <CSSReset />
-            <MainMenu />
-            <main style={{ padding: '1em' }}>
-              <Suspense fallback={<Loader size="large" />}>
-                <Routes>
-                  <Route path={UI_ROUTES.HOME} element={<MainPage />} />
-                  <Route path={UI_ROUTES.SETTINGS.ACCOUNTS} element={<AccountsPage />} />
-                  <Route path={`${UI_ROUTES.SETTINGS.ACCOUNTS}/:accountId`} element={<AccountPage />} />
-                  <Route path={UI_ROUTES.SETTINGS.ROOT} element={<SettingsPage />} />
-                  <Route path={UI_ROUTES.SETTINGS.CATEGORIES} element={<CategoriesPage />} />
-                  <Route path={UI_ROUTES.SETTINGS.SYNC} element={<SyncPage />} />
-                  <Route path={UI_ROUTES.STATISTICS} element={<StatisticsPage />} />
-                  <Route path={`${UI_ROUTES.SETTINGS.CATEGORIES}/:categoryId`} element={<CategoryDetailsPage />} />
-                  <Route path={UI_ROUTES.SETTINGS.LOGIN} element={<LoginPage />} />
-                  <Route path={UI_ROUTES.TRANSACTIONS} element={<TransactionsPage />} />
-                  <Route path={`${UI_ROUTES.TRANSACTIONS}/:transactionId`} element={<TransactionPage />} />
-                </Routes>
-              </Suspense>
-            </main>
+            <ConfigProvider locale={ru_RU}>
+              <CSSReset />
+              <MainMenu />
+              <main style={{ padding: '1em' }}>
+                <Suspense fallback={<Loader size="large" />}>
+                  <Routes>
+                    <Route path={UI_ROUTES.HOME} element={<MainPage />} />
+                    <Route path={UI_ROUTES.SETTINGS.ACCOUNTS} element={<AccountsPage />} />
+                    <Route path={`${UI_ROUTES.SETTINGS.ACCOUNTS}/:accountId`} element={<AccountPage />} />
+                    <Route path={UI_ROUTES.SETTINGS.ROOT} element={<SettingsPage />} />
+                    <Route path={UI_ROUTES.SETTINGS.CATEGORIES} element={<CategoriesPage />} />
+                    <Route path={UI_ROUTES.SETTINGS.SYNC} element={<SyncPage />} />
+                    <Route path={UI_ROUTES.STATISTICS} element={<StatisticsPage />} />
+                    <Route path={`${UI_ROUTES.SETTINGS.CATEGORIES}/:categoryId`} element={<CategoryDetailsPage />} />
+                    <Route path={UI_ROUTES.SETTINGS.LOGIN} element={<LoginPage />} />
+                    <Route path={UI_ROUTES.TRANSACTIONS} element={<TransactionsPage />} />
+                    <Route path={`${UI_ROUTES.TRANSACTIONS}/:transactionId`} element={<TransactionPage />} />
+                  </Routes>
+                </Suspense>
+              </main>
+            </ConfigProvider>
           </AppWrapper>
         </ThemeProvider>
       </BrowserRouter>

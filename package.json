@@ -1,7 +1,7 @@
 {
   "name": "budget-ui-react",
-  "version": "0.3.0",
-  "homepage": "budget",
+  "version": "0.3.2",
+  "homepage": "https://al-sh.github.io/budget-ui-react",
   "proxy": "http://localhost:3001",
   "private": true,
   "devDependencies": {
@@ -29,7 +29,7 @@
     "@types/node": "16.11.26",
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
-    "antd": "4.18.5",
+    "antd": "4.24.15",
     "axios": "0.25.0",
     "date-fns": "2.28.0",
     "mobx": "6.3.13",
@@ -48,6 +48,7 @@
   },
   "scripts": {
     "start": "npm run dev",
+    "sb": "cd ../budget-back-express && npm start",
     "build": "npm run client:build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -55,8 +56,8 @@
     "prod:nobuild": "npm run client:container:run",
     "client:dev": "vite",
     "check": "tsc --noEmit --watch",
-    "client:build": "vite build --base=/budget",
-    "client:build:git": "vite build --base=https://al-sh.github.io/budget",
+    "client:build": "vite build --base=/budget-ui-react",
+    "client:build:git": "vite build --base=https://al-sh.github.io/budget-ui-react",
     "client:build:image": "sh ./nginx-image-build.sh",
     "client:container:run": "sh ./nginx-container-run.sh",
     "client:container:build:run": "npm run client:build:image && npm run client:container:run",
