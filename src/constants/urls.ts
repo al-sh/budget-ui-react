@@ -1,4 +1,4 @@
-export const homepage = 'budget';
+export const homepage = 'budget-ui-react';
 
 export const publicUrl = location?.origin + '/' + homepage;
 
