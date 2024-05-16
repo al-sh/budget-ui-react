@@ -20,9 +20,7 @@ export const TransactionsList: React.VFC = () => {
   return (
     <>
       {transactions?.length === 0 && 'Список пуст'}
-      {transactions?.map((tran) => (
-        <TransactionItem key={tran.id} tran={tran} />
-      ))}
+      {transactions?.map((tran) => <TransactionItem key={tran.id} tran={tran} />)}
       <div style={{ marginTop: '1rem' }}>
         <span style={{ marginRight: '0.5rem' }}>Страница: {currentPage}</span>
         {currentPage > 1 && (

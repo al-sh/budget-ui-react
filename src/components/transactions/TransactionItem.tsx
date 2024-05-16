@@ -39,7 +39,10 @@ const AccountName = styled.div`
   text-align: right;
 `;
 
-export const TransactionItem: React.VFC<{ tran: LocalTransactionWithNames; showOnlyTime?: boolean }> = ({ tran, showOnlyTime }) => {
+export const TransactionItem: React.VFC<{
+  tran: LocalTransactionWithNames;
+  showOnlyTime?: boolean;
+}> = ({ tran, showOnlyTime }) => {
   const navigate = useNavigate();
 
   return (

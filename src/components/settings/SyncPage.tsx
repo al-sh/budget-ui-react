@@ -85,7 +85,11 @@ const SyncPage: React.FC = () => {
       return;
     }
 
-    const res = await api.send<{ accounts: Account[]; categories: Category[]; transactions: TransactionWithDeps[] }>({
+    const res = await api.send<{
+      accounts: Account[];
+      categories: Category[];
+      transactions: TransactionWithDeps[];
+    }>({
       endpoint: API_ROUTES.SYNC + '/download/all',
       method: 'GET',
     });

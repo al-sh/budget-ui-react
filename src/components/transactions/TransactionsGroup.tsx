@@ -10,15 +10,16 @@ const TransactionsGroupWrapper = styled.div`
   margin: 20px 0 20px 0;
 `;
 
-export const TransactionsGroup: React.VFC<{ date: string; transactions: LocalTransactionWithNames[] }> = observer(
-  ({ date, transactions }) => (
-    <TransactionsGroupWrapper>
-      <T1>{date}</T1>
-      {transactions.map((tran) => (
-        <TransactionItem key={tran.id} tran={tran} showOnlyTime />
-      ))}
-    </TransactionsGroupWrapper>
-  )
-);
+export const TransactionsGroup: React.VFC<{
+  date: string;
+  transactions: LocalTransactionWithNames[];
+}> = observer(({ date, transactions }) => (
+  <TransactionsGroupWrapper>
+    <T1>{date}</T1>
+    {transactions.map((tran) => (
+      <TransactionItem key={tran.id} tran={tran} showOnlyTime />
+    ))}
+  </TransactionsGroupWrapper>
+));
 
 TransactionsGroup.displayName = 'TransactionsGroup';

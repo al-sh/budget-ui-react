@@ -19,11 +19,11 @@ const Counter = styled.span`
   color: ${({ theme }) => theme.text.active};
 `;
 
-export const FilterButton: React.VFC<{ filtersCount?: number; onClick: () => void; showFilters: boolean }> = ({
-  showFilters,
-  onClick,
-  filtersCount,
-}) => (
+export const FilterButton: React.VFC<{
+  filtersCount?: number;
+  onClick: () => void;
+  showFilters: boolean;
+}> = ({ showFilters, onClick, filtersCount }) => (
   <FilterButtonWrapper>
     <FilterButtonSVG onClick={onClick}>{showFilters ? 'Скрыть фильтры' : 'Показать фильтры'}</FilterButtonSVG>
     {!!filtersCount && <Counter>{filtersCount}</Counter>}

@@ -83,8 +83,12 @@ export const TransactionsPage: React.FC = () => {
 
             setSearch({
               ...paramsForSearch,
-              ...(paramsForSearch.dateFrom && { dateFrom: paramsForSearch.dateFrom.format(formats.dateMoment.short) }),
-              ...(paramsForSearch.dateEnd && { dateEnd: paramsForSearch.dateEnd.format(formats.dateMoment.short) }),
+              ...(paramsForSearch.dateFrom && {
+                dateFrom: paramsForSearch.dateFrom.format(formats.dateMoment.short),
+              }),
+              ...(paramsForSearch.dateEnd && {
+                dateEnd: paramsForSearch.dateEnd.format(formats.dateMoment.short),
+              }),
             } as unknown as URLSearchParams);
           }}
         />

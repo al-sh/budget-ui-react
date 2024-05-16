@@ -35,7 +35,10 @@ export class ApiService {
       const { endpoint, method, data, query, isFile } = request;
       const url = `${this.path}/${endpoint}`;
 
-      const headers: AxiosRequestHeaders = { Auth: getStorage().getItem('token'), UserId: getStorage().getItem('userId') };
+      const headers: AxiosRequestHeaders = {
+        Auth: getStorage().getItem('token'),
+        UserId: getStorage().getItem('userId'),
+      };
       if (isFile) {
         headers['Content-Type'] = 'multipart/form-data';
       }

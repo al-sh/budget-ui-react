@@ -5,10 +5,10 @@ import { Loader } from '../../_shared/Loader';
 import { StatGraphChart } from './StatGrapChart';
 import { StatGraphRawData } from './StatGraphRawData';
 
-export const StatGraph: React.VFC<{ filterParams: GetStatTreeFormParams; selectedCategories: Category['id'][] }> = ({
-  filterParams,
-  selectedCategories,
-}) => {
+export const StatGraph: React.VFC<{
+  filterParams: GetStatTreeFormParams;
+  selectedCategories: Category['id'][];
+}> = ({ filterParams, selectedCategories }) => {
   const { useGraph } = useStatistics();
   const { isLoading, isError, data: statCategories } = useGraph({ ...filterParams, categoryIds: selectedCategories });
 

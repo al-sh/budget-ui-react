@@ -13,7 +13,10 @@ function getRandomColor() {
 
 export const StatGraphChart: React.VFC<{ statCategories: MonthlyStatCategory[] }> = ({ statCategories }) => {
   const getChartItem = (statItem: MonthlyStatCategory) =>
-    statItem.data.map((item) => ({ name: item.period, [statItem.category.name as string]: item.amount / 100 }));
+    statItem.data.map((item) => ({
+      name: item.period,
+      [statItem.category.name as string]: item.amount / 100,
+    }));
 
   const chartDataFlatted = statCategories.map((statItem) => getChartItem(statItem)).flat();
 

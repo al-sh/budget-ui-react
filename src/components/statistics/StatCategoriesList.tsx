@@ -34,10 +34,10 @@ const Amount = styled.span`
   color: green;
 `;
 
-export const StatCategoriesList: React.VFC<{ categoriesTree: ICategoryStatItem[]; onSelect?: (selectedIds: string[]) => void }> = ({
-  categoriesTree,
-  onSelect,
-}) => {
+export const StatCategoriesList: React.VFC<{
+  categoriesTree: ICategoryStatItem[];
+  onSelect?: (selectedIds: string[]) => void;
+}> = ({ categoriesTree, onSelect }) => {
   return (
     <>
       <CategoriesListWrapper>

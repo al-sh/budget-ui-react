@@ -46,11 +46,6 @@ class AccountsStore {
     return rest;
   };
 
-  private compareAccounts = (a: Account, b: Account) => {
-    if (a.name === b.name) return 0;
-    return a.name > b.name ? -1 : 1;
-  };
-
   public create = (formValues: Account) => {
     console.log('addAccount', formValues);
 
@@ -96,6 +91,11 @@ class AccountsStore {
 
       resolve();
     });
+
+  private compareAccounts = (a: Account, b: Account) => {
+    if (a.name === b.name) return 0;
+    return a.name > b.name ? -1 : 1;
+  };
 
   public getList: (showHidden?: boolean) => AccountWithRest[] = (showHidden?: boolean) => {
     const accounts = showHidden ? this._localDataService.accounts : this._localDataService.accounts.filter((acc) => acc.isActive);
